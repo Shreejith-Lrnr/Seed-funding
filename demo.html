@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Percentage Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .circle-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      font-size: 24px;
+    }
+
+    svg {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+
+    circle {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dasharray 0.5s ease-in-out, stroke 0.5s ease-in-out;
+    }
+
+    .percentage-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5em;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="circle-container" id="circle">
+  <svg width="200" height="200">
+    <circle cx="100" cy="100" r="90" stroke="#f0f0f0" />
+  </svg>
+  <div class="percentage-text">0%</div>
+</div>
+
+<div class="form-group mt-3">
+  <label for="percentageInput">Enter Percentage:</label>
+  <input type="number" class="form-control" id="percentageInput" placeholder="Enter percentage" min="0" max="100">
+</div>
+
+<div class="btn-container">
+  <button class="btn btn-primary" onclick="updatePercentage()">Update Percentage</button>
+</div>
+
+<script>
+  function updatePercentage() {
+    var percentageInput = document.getElementById('percentageInput');
+    var circleContainer = document.getElementById('circle');
+    var percentageText = circleContainer.querySelector('.percentage-text');
+    var circle = circleContainer.querySelector('circle');
+
+    var newPercentage = parseFloat(percentageInput.value);
+
+    // Validate the input to be between 0 and 100
+    if (isNaN(newPercentage) || newPercentage < 0 || newPercentage > 100) {
+      alert('Please enter a valid percentage between 0 and 100.');
+      return;
+    }
+
+    // Determine color based on percentage range
+    var color = getColorByPercentage(newPercentage);
+
+    // Apply the background color with animation
+    circle.style.stroke = color;
+
+    // Calculate the dash array to represent the percentage
+    var dashArray = (Math.PI * 2 * 90 * newPercentage) / 100;
+    circle.style.strokeDasharray = dashArray + ' ' + (Math.PI * 2 * 90);
+
+    // Delay the text update to allow the animation effect
+    setTimeout(function() {
+      percentageText.textContent = newPercentage + '%';
+    }, 300);
+  }
+
+  function getColorByPercentage(percentage) {
+    if (percentage >= 0 && percentage <= 30) {
+      return 'red';
+    } else if (percentage > 30 && percentage <= 60) {
+      return 'orange';
+    } else if (percentage > 60 && percentage <= 85) {
+      return 'yellow';
+    }
+    else if (percentage > 85 && percentage <= 100) {
+      return 'green';
+    }
+  }
+</script>
+
+</body>
+</html>

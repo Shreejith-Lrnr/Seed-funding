@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+    <style>
+
+        .carousel-inner img {
+            width: 100%;
+            height: 850px;
+        }
+        .bg-image img{
+            width: 100%;
+            height: 1200px;
+        }
+       
+        
+        
+        #form{
+            width: 40%;
+            height: 1100px;
+            background-color: rgb(255,255,255/ 5%);
+            box-shadow: 0 0 5px rgb(0,0,0 /15%);
+            backdrop-filter: blur(10px);
+            margin: 20vh auto 0 auto;
+            border-radius: 5px;
+            border-style:solid;
+            position: absolute;
+            top: -5%;
+            left: 30%;
+        }
+        #form button{
+            width:80%;
+            height: 50px;
+            background-color:#831238;
+            margin-top: 15vh ;
+            color: whitesmoke;
+            border-radius: 10px;
+            border-style: hidden;
+            margin-left: 55px;
+            font-size: 25px;
+            font-family: montserrat-black;
+        }
+        #form img{
+            width: 350px;
+            margin: 5vh auto 0 15vh;
+            
+        }
+        .signIn{
+            
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+      
+             /* HTML: <div class="ribbon">Your text content</div> */
+         .ribbon {
+            
+            left: 5%;
+            font-size: 160%;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 22%;
+            margin-top: 4vh;
+            font-family: montserrat-black;
+            
+         }
+          .ribbon {
+            --s: 1.8em; /* the ribbon size */
+           --d: .8em;  /* the depth */
+           --c: .8em;  /* the cutout part */
+  
+            padding: 0 calc(var(--s) + .5em) var(--d);
+            line-height: 1.8;
+            background:
+            conic-gradient(at left  var(--s) bottom var(--d),
+            #0000 25%,#0008 0 37.5%,#0004 0) 0   /50% 100% no-repeat,
+            conic-gradient(at right var(--s) bottom var(--d),
+            #0004 62.5%,#0008 0 75%,#0000 0) 100%/50% 100% no-repeat;
+            clip-path: polygon(0 var(--d), var(--s) var(--d),var(--s) 0,calc(100% - var(--s)) 0,calc(100% - var(--s)) var(--d),100% var(--d),calc(100% - var(--c)) calc(50% + var(--d)/2),100% 100%,calc(100% - var(--s) - var(--d)) 100%,calc(100% - var(--s) - var(--d)) calc(100% - var(--d)),calc(var(--s) + var(--d)) calc(100% - var(--d)),calc(var(--s) + var(--d)) 100%,0 100%,var(--c) calc(50% + var(--d)/2));
+            background-color: #831238; /* the main color */
+            width: fit-content;
+}
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            top: 5%;
+            
+        }
+        .input-group1 label{
+            position: relative;
+            top: 10px;
+            left: 10%;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: montserrat-black;
+        }
+        .input-group1 input{
+            width: 80%;
+            height: 55px;
+            margin-left: -14vh;
+            border-radius: 5px;
+            border-color: rgb(0, 17, 255) ;
+            margin-top: 10vh;
+            font-family: montserrat-black;
+            padding-left: 35px;
+        }
+        
+        
+        .input-group label{
+            font-size: 25px;
+            padding-bottom: 10px;
+            font-family: montserrat-black;
+            font-weight: 700;
+            padding-left: 50px;
+            padding-top: 20px;
+            color: black;
+        }
+        .input-group input{
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border-color: rgb(0, 17, 255);
+            font-size: 25px;
+            font-family: montserrat-black;
+            padding-left: 35px;
+            margin-left: 50px;
+        }
+        .input-group .error{
+            color: red;
+            font-size: 20px;
+            padding-left: 50px;
+            padding-top: 5px;
+
+        }
+        .input-group.error input{
+            border-color: red;
+        }
+        .input-group.success input{
+            border-color: green;
+        }
+        .navbar{
+            background-color: #831238;
+        }
+
+        #footer{
+            height: 250px;
+            background-color: #831238;
+        }
+        .footer-img{
+            width: 350px;
+            height: 70px;
+            margin-top: 12.5vh;
+            margin-left: 8vh;
+        }
+      
+        
+        .social{
+            display: flex;
+            flex-direction: row;
+            margin-left: 85vh;
+            font-size: 50px;
+            margin-top: -12vh;
+            padding: 10px;
+         }
+        
+         .item1{
+            padding-right: 5%;
+            padding-left: 5%;
+            color: whitesmoke;
+        }
+        .item2{
+            padding-right: 40px;
+            padding-left: 15%;
+            color: whitesmoke;
+        }
+        .item3{
+            padding-right: 40px;
+            padding-left: 15%;
+            color: whitesmoke;
+        }
+        .item4{
+            padding-left:12%;
+            color: whitesmoke;      
+        }
+        a:hover{
+            color: #cacaca;
+        }
+        #rank {
+            position: relative;
+            top: 75px;
+            font-size: 40px;
+            left: 14%;
+        }
+        .answer{
+            position: relative;
+            top: 75px;
+            left: 15%;  
+            font-size: 20px;
+            color: whitesmoke;
+        }
+        
+        @media only screen and (max-width: 600px){
+
+            .carousel-inner img {
+            width: 100%;
+            height: 450px;
+            }
+
+               #form{
+                width: 60%;
+                height: 420px;
+                position: absolute;
+                top: -50px;
+                left: 90px;
+            }
+            #form img{
+            width: 250px;
+            margin: 5vh auto 0 4vh;
+        }
+        .ribbon{
+            color:#ffffff;
+            font-size: 85%;
+            margin-left: 22% ;
+            font-family: montserrat-black;
+        }
+        .signIn{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .input-group label{
+            font-size: 15px;
+            padding-bottom: 10px;
+            font-family: montserrat-black;
+            font-weight: 700;
+            padding-left: 20px;
+            color: black;
+        }
+        .input-group input{
+            padding: 5px;
+            border-radius: 5px;
+            border-color: rgb(0, 17, 255);
+            font-size: 15px;
+            font-family: montserrat-black;
+            padding-left: 35px;
+            margin-left: 1.7vh;
+        }
+        .input-group .error{
+            color: red;
+            font-size: 10px;
+            padding-left: 20px;
+            padding-top: 5px;
+
+        }
+        #form button{
+            width:80%;
+            height: 35px;
+            margin-top: 2vh ;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        #footer{
+            height: 150px;
+            background-color: #831238;
+        }
+        .footer-img{
+            width: 180px;
+            height: 50px;
+            margin-top: 8vh;
+            margin-left: 5vh;
+        }
+      
+        .social{
+            display: flex;
+            flex-direction: row;
+            margin-left: 35vh;
+            font-size: 20px;
+            margin-top: -8vh;
+            padding: 10px;
+         }
+         .item1,.item2,.item3,.item4{
+            padding-right: 10px;
+            padding-left: 10px;
+         }
+}
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .carousel-inner img {
+            width: 100%;
+            height: 600px;
+            }
+
+            #form{
+                width: 50%;
+                height: 530px;
+                position: absolute;
+                top: -2%;
+                left: 20%;
+            }
+            #form img{
+            width: 250px;
+            margin: 5vh auto 0 4vh;
+        }
+        .ribbon{
+            color:#ffffff;
+            font-size: 115%;
+            margin-left: 30% ;
+            font-family: montserrat-black;
+        }
+        .signIn{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+   
+        .input-group label{
+            font-size: 20px;
+            padding-bottom: 10px;
+            font-family: montserrat-black;
+            font-weight: 700;
+            padding-left: 20px;
+            color: black;
+        }
+        .input-group input{
+            padding: 5px;
+            border-radius: 5px;
+            border-color: rgb(0, 17, 255);
+            font-size: 18px;
+            font-family: montserrat-black;
+            padding-left: 35px;
+            margin-left: 1.7vh;
+        }
+        #form button{
+            width:80%;
+            height: 35px;
+            margin-top: 7vh ;
+            margin-left: 35px;
+            font-size: 18px;
+       }
+        .footer-img{
+            width: 270px;
+            height: 60px;
+            margin-top: 12vh;
+            margin-left: 5vh;
+        }
+        .social{
+            display: flex;
+            flex-direction: row;
+            margin-left: 50vh;
+            font-size: 25px;
+            margin-top: -9vh;
+            padding: 10px;
+        }
+  }
+
+        
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-md  navbar-dark">
+        
+        <a class="navbar-brand" href="#">
+            <img src="images/sist_header.jpg" alt="logo" style="width: 200px; padding-left: 20px;">
+        </a>
+      
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+       
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                    <a class="nav-link  text-light" id="sign" href="#" >SignIn</a>
+            </li>
+            <li class=" nav-item" >            
+                    <a class="nav-link text-light" href="AllUser.html">All User</a>     
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="AddUser.html">Add User</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <div class="bg-image">
+        <img src="images/loginbg1.d461acd88c1bb3863bc9.jpg" alt="">
+      </div>
+
+
+    <section id="content">
+        <form id="form">
+            <div class="box">
+                <div class="ribbon">
+                    <b class="signIn">Add User</b>
+                </div>
+            </div>
+            
+            <div class="input-group ">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Name" id="name" name="name">
+                <div class="error"></div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Email" id="email" name="email">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-group ">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" id="password" name="password">
+                <div class="error"></div>
+            </div>
+            <div class="input-group ">
+                <label for="department">Department</label>
+                <input type="text" placeholder="Department" id="department" name="department">
+                <div class="error"></div>
+            </div>
+
+            <input type="checkbox"  data-toggle="collapse" data-target="#demo" id="rank" name="rank">
+            <label for="rank" class="answer">You have already attend the last test</label>
+           <div id="demo" class="collapse">
+            <div class="input-group1">
+                <label for="rank">Rank</label>
+                <input type="text" value="0%" id="rank" name="rank" style="font-size: 25px;">
+            </div>
+          </div>
+
+            <button type="submit" class="button" href="SignIn.html">Log In </button>
+        </form>
+    </section>
+    <section id="footer">
+        <div>
+            <a href="https://www.sathyabama.ac.in/">
+                <img src="images/sist_header.jpg" alt="" class="footer-img">
+            </a>      
+        </div>
+       
+        <div class="social">
+            <a class="item1" href="https://www.facebook.com/SathyabamaOfficial/"><i class="fa-brands fa-facebook"></i></a>
+            <a class="item2" href="https://twitter.com/sathyabamaSIST"><i class="fa-brands fa-twitter"></i></a>
+            <a class="item3" href="https://www.instagram.com/sathyabama.official/"><i class="fa-brands fa-instagram"></i></a>
+            <a class="item4" href="https://www.youtube.com/channel/UCkBMqT83pxjwPhh8mUpZ0hQ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </section>
+        
+       
+
+
+
+
+    <script>
+
+
+        const form = document.querySelector('#form');
+        const name = document.querySelector('#name');
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        const department = document.querySelector('#department');
+        
+
+        form.addEventListener('submit',(e)=>{
+            
+            if(!validateInputs()){
+                e.preventDefault();
+            }
+        });
+
+        function validateInputs(){
+            const nameVal = name.value.trim();
+            const emailVal = email.value.trim();
+            const passwordVal = password.value.trim();
+            const departmentVal = department.value.trim();
+            let success = true;
+           
+            if(nameVal === ''){
+                success = false;
+                setError(name,'Name is required');
+            }
+            else if(!/^[A-Za-z]+(?:[' -][A-Za-z]+)*$/.test(nameVal)){
+                success = false;
+                setError(name,'Name must be alphabets');
+            }
+            else{
+                setSuccess(name);
+            }
+            if(emailVal === ''){
+                success = false;
+                setError(email,'Email is required');
+            }
+            
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+                success=false;
+                setError(email, 'Enter a valid email address');
+    
+            }
+            else{
+                setSuccess(email)
+            }
+            
+            if(passwordVal === ''){
+                success=false;
+                setError(password,'Password is required');
+            }
+            else if(passwordVal.length<8){
+                success=false;
+                setError(password,'Password must be atleast 8 characters');
+            }
+            else if (!/[A-Z]/.test(passwordVal)) {
+                success=false;
+                setError(password, 'Password must contain at least one uppercase letter');
+            }
+
+  
+            else if (!/[a-z]/.test(passwordVal)) {
+                success = false;
+                setError(password, 'Password must contain at least one lowercase letter');
+          
+            }
+
+ 
+            else if (!/\d/.test(passwordVal)) {
+                success = false;
+                setError(password, 'Password must contain at least one digit');
+            
+            }
+            else{
+                setSuccess(password);
+            }
+
+
+            if(departmentVal === ''){
+                success = false;
+                setError(department,'Department must be required');
+            }
+            else if(!/^[A-Za-z]+(?:[' -][A-Za-z]+)*$/.test(departmentVal)){
+                success = false;
+                setError(department,'Department must be alphabets');
+            }
+            else{
+                setSuccess(department);
+            }
+
+           
+
+            return success;
+        }
+
+        function setError(element,message){
+            const inputGroup = element.parentElement;
+            const errorElement = inputGroup.querySelector('.error');
+
+            errorElement.innerText = message;
+            inputGroup.classList.add('error');
+            inputGroup.classList.remove('success');
+        }
+
+        function setSuccess(element){
+            const inputGroup = element.parentElement;
+            const errorElement = inputGroup.querySelector('.error');
+
+            errorElement.innerText = '';
+            inputGroup.classList.add('success');
+            inputGroup.classList.remove('error');
+        }
+    </script>
+
+
+
+</body>
+</html>

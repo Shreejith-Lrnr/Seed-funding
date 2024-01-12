@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+    <style>
+        #content{
+            height: 2000px;
+            background-color: #dcdcdc;
+        }
+
+        .navbar {
+            background-color: #831238;
+        }
+
+       
+        .header h5{
+            position: relative;
+            left: 200px;
+            top: 40px;
+        }
+
+        .container h1{
+            text-align: center;
+            color: rgb(0, 0, 0);
+            padding: 30px;
+            padding-bottom: 50px;
+            font-family: montserrat-black;
+        }
+        .container .box{
+            width: 95%;
+            height: 300px;
+            background-color: whitesmoke;
+            margin-left: 5vh;   
+            border-radius: 50px;
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            margin-top: 5vh;
+      
+        }
+        .box h2{
+            padding-left: 100px;
+            padding-top: 30px;
+        }
+        .box label{
+            padding-left: 15%;
+            padding-top: 15px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .box input{
+            position: relative;
+            left: 15%;
+            
+        }
+        .box button{
+            width: 100px;
+            border-radius: 10px;
+            background-color: yellow;
+            font-size: 20px;
+            position: relative;
+            left: 80%;
+            bottom:50px;
+            border-style: hidden;
+        }
+        .box button:hover{
+            background-color: rgb(187, 187, 0);
+        }
+
+        .button button{
+            width: 120px;
+            height: 50px;
+            position: relative;
+            top: 100px;
+            left: 500px;
+            background-color: rgb(0, 140, 255);
+            border-radius: 50px;
+            border-style: hidden;
+            font-size: 25px;
+            color:#ffffff;
+            box-shadow: 10px 0px 10px 0px #939292;
+          
+        }
+        .button button:hover{
+            background-color: #0022ff;
+        }
+
+        .progress{
+           
+            position:sticky;
+            left: 60%;
+            top: 5px;
+            width: 25%;
+            height: 25px;
+            border-radius: 50px;
+        }
+
+
+
+
+
+        #footer {
+            height: 250px;
+            background-color: #831238;
+        }
+
+        .footer-img {
+            width: 350px;
+            height: 70px;
+            margin-top: 12.5vh;
+            margin-left: 8vh;
+        }
+
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            margin-left: 85vh;
+            font-size: 50px;
+            margin-top: -12vh;
+            padding: 10px;
+        }
+
+        .item1 {
+            padding-right: 5%;
+            padding-left: 5%;
+            color: whitesmoke;
+        }
+
+        .item2 {
+            padding-right: 40px;
+            padding-left: 15%;
+            color: whitesmoke;
+        }
+
+        .item3 {
+            padding-right: 40px;
+            padding-left: 15%;
+            color: whitesmoke;
+        }
+
+        .item4 {
+            padding-left: 12%;
+            color: whitesmoke;
+        }
+
+        a:hover {
+            color: #cacaca;
+        }
+
+
+
+
+
+        @media only screen and (max-width: 600px) {
+
+            
+
+            #footer {
+                height: 150px;
+                background-color: #831238;
+            }
+
+            .footer-img {
+                width: 180px;
+                height: 50px;
+                margin-top: 8vh;
+                margin-left: 5vh;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                margin-left: 35vh;
+                font-size: 20px;
+                margin-top: -8vh;
+                padding: 10px;
+            }
+
+            .item1,
+            .item2,
+            .item3,
+            .item4 {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            
+
+            .footer-img {
+                width: 270px;
+                height: 60px;
+                margin-top: 12vh;
+                margin-left: 5vh;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                margin-left: 50vh;
+                font-size: 25px;
+                margin-top: -9vh;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-md  navbar-dark">
+
+        <a class="navbar-brand" href="#">
+            <img src="images/sist_header.jpg" alt="logo" style="width: 200px; padding-left: 20px;">
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link  text-light" id="sign" href="#">SignUp</a>
+                </li>
+                <li class=" nav-item  ">
+
+                    <a class="nav-link text-light" href="#" id="home">Home</a>
+
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+
+    
+
+
+
+    <section id="content">
+
+        <div class="header">
+            <h5>{Hemakumar} , <sub>BE-cse</sub></h5>
+            <h5>{lhemakumar29@gmail.com}</h5>
+        </div>
+
+        
+            <div class="progress" id="progressBar">
+                <div class="progress-bar bg-progress-bar-striped progress-bar-animated" style="width:0%"></div>
+            </div>
+        
+
+      
+
+        <div class="container">
+            <h1>QUESTIONS</h1>
+            <div class="row">
+                <div class="box">
+                    <form class="form">
+                        <h2>1. {Which is the correct answer:}</h2>
+                        <input type="radio" id="option1" name="question1" value="{option1}">
+                        <label for="option1">{option1}</label><br>
+                        <input type="radio" id="option2" name="question1" value="{option2}">
+                        <label for="option2">{option2}</label><br>
+                        <input type="radio" id="option3" name="question1" value="{option3}">
+                        <label for="option3">{option3}</label><br>
+                        <input type="radio" id="option4" name="question1" value="{option4}">
+                        <label for="option4">{option4}</label><br>  
+
+                        <button type="button" onclick="clearSelectedOptions('question1')">Clear</button>
+       
+
+
+
+                    </form>
+                     </div>
+                     <div class="box">
+                        <form class="form">
+                            <h2>2. {Which is the correct answer:}</h2>
+                            <input type="radio" id="option1" name="question2" value="{option1}">
+                            <label for="option1">{option1}</label><br>
+                            <input type="radio" id="option2" name="question2" value="{option2}">
+                            <label for="option2">{option2}</label><br>
+                            <input type="radio" id="option3" name="question2" value="{option3}">
+                            <label for="option3">{option3}</label><br>
+                            <input type="radio" id="option4" name="question2" value="{option4}">
+                            <label for="option4">{option4}</label><br>  
+
+                            <button type="button" onclick="clearSelectedOptions('question2')">Clear</button>
+                            
+                      </form>
+                     </div>
+                     <div class="box">
+                        <form class="form">
+                            <h2>3. {Which is the correct answer:}</h2>
+                            <input type="radio" id="option1" name="question3" value="{option1}">
+                            <label for="option1">{option1}</label><br>
+                            <input type="radio" id="option2" name="question3" value="{option2}">
+                            <label for="option2">{option2}</label><br>
+                            <input type="radio" id="option3" name="question3" value="{option3}">
+                            <label for="option3">{option3}</label><br>
+                            <input type="radio" id="option4" name="question3" value="{option4}">
+                            <label for="option4">{option4}</label><br>  
+
+                            <button type="button" onclick="clearSelectedOptions('question3')">Clear</button>
+       
+
+  
+                        </form>
+                         </div>
+                         <div class="box">
+                            <form class="form">
+                                <h2>4. {Which is the correct answer:}</h2>
+                                <input type="radio" id="option1" name="question4" value="{option1}">
+                                <label for="option1">{option1}</label><br>
+                                <input type="radio" id="option2" name="question4" value="{option2}">
+                                <label for="option2">{option2}</label><br>
+                                <input type="radio" id="option3" name="question4" value="{option3}">
+                                <label for="option3">{option3}</label><br>
+                                <input type="radio" id="option4" name="question4" value="{option4}">
+                                <label for="option4">{option4}</label><br>  
+
+                                <button type="button" onclick="clearSelectedOptions('question4')">Clear</button>
+       
+                            </form>
+                             </div>
+
+                             <div class="button">
+                                <button type="button" id="submitBtn">Submit</button>
+                            </div>
+                             
+            </div>
+       </div>
+    </section>
+    <section id="footer">
+        <div>
+            <a href="https://www.sathyabama.ac.in/">
+                <img src="images/sist_header.jpg" alt="" class="footer-img">
+            </a>
+        </div>
+
+        <div class="social">
+            <a class="item1" href="https://www.facebook.com/SathyabamaOfficial/"><i class="fa-brands fa-facebook"></i></a>
+            <a class="item2" href="https://twitter.com/sathyabamaSIST"><i class="fa-brands fa-twitter"></i></a>
+            <a class="item3" href="https://www.instagram.com/sathyabama.official/"><i class="fa-brands fa-instagram"></i></a>
+            <a class="item4" href="https://www.youtube.com/channel/UCkBMqT83pxjwPhh8mUpZ0hQ"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </section>
+    
+
+    <script>
+
+        //clear option button 
+        function clearSelectedOptions(question) {
+            const radioButtons = document.getElementsByName(question);
+
+            radioButtons.forEach(button => {
+                button.checked = false;
+            });
+        }
+
+        //progress bar 
+        function clearSelectedOptions(questionId) {
+            var radioButtons = document.getElementsByName(questionId);
+        
+            radioButtons.forEach(radioButton => radioButton.checked = false);
+            updateProgress();
+       }
+       
+       function updateProgress() {
+           var totalQuestions = 4; // Change this based on the total number of questions
+           var answeredQuestions = 0;
+
+           // Check each question and count the answered ones
+           for (var i = 1; i <= totalQuestions; i++) {
+            var radioButtons = document.getElementsByName('question' + i);
+            if (Array.from(radioButtons).some(radioButton => radioButton.checked)) {
+                answeredQuestions++;
+            }
+        }
+
+        // Calculate the percentage of answered questions
+        var percentage = (answeredQuestions / totalQuestions) * 100;
+
+        // Update the progress bar width
+        var progressBar = document.getElementById('progressBar').firstElementChild;
+        progressBar.style.width = percentage + '%';
+       }
+
+       // Add event listeners to radio buttons
+       document.querySelectorAll('input[type="radio"]').forEach(function (radioButton) {
+           radioButton.addEventListener('change', updateProgress);
+    });
+
+
+
+        
+    // submit button
+    function clearSelectedOptions(questionId) {
+        var radioButtons = document.getElementsByName(questionId);
+        radioButtons.forEach(radioButton => radioButton.checked = false);
+    }
+
+    
+    function handleSubmit() {
+    
+        alert("Form submitted!");
+
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+
+
+    </script>
+    
+
+
+
+</body>
+
+</html>
