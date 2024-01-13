@@ -22,19 +22,29 @@
             height: 1000px;
             background-color: #dcdcdc;
         }
-        .details h1{
-            text-align: center;
-            margin-top: 10vh;
-            font-family: montserrat-black;
-            font-weight: 700;
-            margin-bottom: 5vh;
+
+        .add{
+            position: relative;
+            left: 950px;
+            bottom: 30px;
+            border-radius: 30px;
+            width: 100px;
+            height: 50px;
+            border-style: hidden;
+            background-color: yellow;
+            font-size: 25px;
         }
-        
-        .container h1 {
+
+        .add:hover{
+            background-color: rgb(147, 147, 0);
+        }
+        .details h1 {
             text-align: center;
             padding-bottom: 50px;
             color: rgb(22, 22, 22);
-            font-weight: 700;
+            font-weight: 600;
+            font-family: montserrat-black;
+            margin-top: 10vh;
         }
         
         .details {
@@ -42,6 +52,23 @@
             top: 10%;
             left: 10%;
             width: 80%;
+        }
+        
+        .details .button{
+            position: relative;
+            left: 500px;
+            top: 100px;
+            width: 120px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: rgb(0, 140, 255);
+            color: whitesmoke;
+            border-style: hidden;
+            font-size: 25px;
+            box-shadow: 10px 0px 10px 0px #acacac;
+        }
+        .details .button:hover{
+            background-color:rgb(0, 93, 170);
         }
         
         .del {
@@ -53,23 +80,32 @@
             background-color: #ff0000;
         }
         
-        #form1 p {
-            border-style: hidden;
-            margin-left: 10vh;
-            font-family: Georgia, serif;
-            font-size: 30px;
-            font-weight: 600;
+        #form1 h2{
+           padding: 20px;
+           margin-left: 50px;
+        }
+        #form1 input{
+            margin-left: 20vh;
+            margin-top: 3vh;
+        }
+        #form1 label{
+            font-size: 25px;
+            font-weight: 500;
         }
         
         .btn-group {
             position: absolute;
             color: #EE4B2B;
             left: 97%;
-            top: 30%;
+            top: 40%;
         }
         
         i {
             font-size: 30px;
+        }
+        hr{
+            background-color: #c8c8c8;
+            margin:3vh;
         }
         
         .card {
@@ -79,7 +115,7 @@
         }
         
         .card-body {
-            border-radius: 50px;
+            border-radius: 100px;
             background: linear-gradient(145deg, #e6e6e6, #ffffff);
             box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
         }
@@ -94,36 +130,7 @@
             background-color: #831238;
         }
         
-        .circle-container {
-            position: absolute;
-            left: 70%;
-            top: -10%;
-            width: 200px;
-            height: 200px;
-            font-size: 24px;
-        }
         
-        svg {
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
-        }
-        
-        circle {
-            fill: rgb(230, 230, 230);
-            stroke-width: 10;
-            stroke-linecap: round;
-            transition: stroke-dasharray 0.5s ease-in-out, stroke 0.5s ease-in-out;
-        }
-        
-        .percentage-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.0em;
-            font-weight: 600;
-            font-family: montserrat-black;
-        }
         
         #footer {
             height: 250px;
@@ -286,7 +293,10 @@
 
     <section id="content">
         <div class="details">
-            <h1>User Details</h1>
+            <h1>QUESTION PAGE</h1>
+
+
+            <button class="add" type="button" onclick="addQuestion()">Add</button>
            <!-- {% for details in all_details %}-->
             <div class="container">
 
@@ -301,16 +311,19 @@
                             </div><br>
                             <!-- User details go here -->
                             <div id="form1">
-                                <p>{{details["name"]}} ,<sub>{{details['dept']}}</sub></p>
-                                <p>{{details['email']}}</p>
+                                <h2>1. {Which is the correct answer:}</h2>
+                                <input type="radio" id="option1" name="question1" value="{option1}">
+                                <label for="option1">{option1}</label><br>
+                                <input type="radio" id="option2" name="question1" value="{option2}">
+                                <label for="option2">{option2}</label><br>
+                                <input type="radio" id="option3" name="question1" value="{option3}">
+                                <label for="option3">{option3}</label><br>
+                                <input type="radio" id="option4" name="question1" value="{option4}">
+                                <label for="option4">{option4}</label><br>  
+                
                             </div>
 
-                            <div class="circle-container" id="circle">
-                                <svg width="200" height="200">
-                            <circle cx="100" cy="100" r="60" stroke="#f0f0f0" />
-                        </svg>
-                                <div class="percentage-text">{{details['rank']}}%</div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -339,6 +352,14 @@
                 </div>
                <!-- {% endfor %}-->
             </div>
+
+            <div >
+                <button class="button" type="button" onclick="buttonUpdate()">Submit</button>
+             </div>
+        </div>
+
+
+
     </section>
 
 
@@ -364,46 +385,12 @@
 
 
     <script>
-        function updatePercentage() {
-            var fixedPercentage = 75; // Replace this value with your desired fixed percentage
-            var circleContainer = document.getElementById('circle');
-            var percentageText = circleContainer.querySelector('.percentage-text');
-            var circle = circleContainer.querySelector('circle');
-
-
-
-            // Validate the input to be between 0 and 100
-            if (isNaN(fixedPercentage) || fixedPercentage < 0 || fixedPercentage > 100) {
-                alert('Please enter a valid percentage between 0 and 100.');
-                return;
-            }
-
-            // Determine color based on percentage range
-            var color = getColorByPercentage(fixedPercentage);
-
-            // Apply the background color with animation
-            circle.style.stroke = color;
-
-            // Calculate the dash array to represent the percentage
-            var dashArray = (Math.PI * 2 * 60 * fixedPercentage) / 100;
-            circle.style.strokeDasharray = dashArray + ' ' + (Math.PI * 2 * 60);
-
-            // Delay the text update to allow the animation effect
-            setTimeout(function() {
-                percentageText.textContent = fixedPercentage + '%';
-            }, 300);
+        function buttonUpdate(){
+            alert('Question Submitted')
         }
 
-        function getColorByPercentage(percentage) {
-            if (percentage >= 0 && percentage <= 30) {
-                return 'red';
-            } else if (percentage > 30 && percentage <= 60) {
-                return 'orange';
-            } else if (percentage > 60 && percentage <= 85) {
-                return 'yellow';
-            } else if (percentage > 85 && percentage <= 100) {
-                return 'green';
-            }
+        function addQuestion(){
+            window.location.href = "Addquestion.html";
         }
     </script>
 
